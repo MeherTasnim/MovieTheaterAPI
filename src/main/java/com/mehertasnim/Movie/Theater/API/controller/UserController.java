@@ -11,7 +11,7 @@ import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:8081")
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/movie-users")
 public class UserController {
 
     private final UserService userService;
