@@ -34,8 +34,8 @@ public class UserController {
     }
 
     @GetMapping("/{userId}/shows")
-    public List<Show> getAllShowsWatchedByUser(@PathVariable Long userId) {
-        return userService.getAllShowsWatchedByUser(userId);
+    public List<Show> getShowsWatchedByUser(@PathVariable Long userId) {
+        return userService.getShowsWatchedByUser(userId);
     }
 
     @PutMapping("/{userId}/shows/{showId}")

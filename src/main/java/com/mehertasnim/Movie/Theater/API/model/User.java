@@ -5,7 +5,7 @@ import java.util.List;
 
 
 @Entity
-@Table(name = "user")
+@Table(name = "movieuser")
 public class User {
 
     @Id
@@ -38,14 +38,16 @@ public class User {
     }
 
     public List<Show> getWatchedShows() {
+
         return watchedShows;
     }
 
     public void setWatchedShows(List<Show> watchedShows) {
+
         this.watchedShows = watchedShows;
     }
 
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "movie_user_id")
+    @JoinColumn(name = "movies_user_id")
     private List<Show> watchedShows;
 }

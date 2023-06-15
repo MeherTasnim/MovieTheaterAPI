@@ -27,7 +27,7 @@ public class UserService {
                 .orElseThrow(() -> new EntityNotFoundException("User not found with the id: " + userId));
     }
 
-    public List<Show> getAllShowsWatchedByUser(Long userId) {
+    public List<Show> getShowsWatchedByUser(Long userId) {
         User user = getUserById(userId);
         return user.getWatchedShows();
     }
