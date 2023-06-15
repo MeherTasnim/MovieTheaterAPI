@@ -21,6 +21,9 @@ public class Show {
      @Column(name = "status")
      private String status;
 
+     public Show() {
+     }
+
      public Show(Long id, String title, String genre, String rating, String status) {
           this.id = id;
           this.title = title;

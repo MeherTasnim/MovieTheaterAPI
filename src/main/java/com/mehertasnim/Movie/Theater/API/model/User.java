@@ -1,6 +1,8 @@
 package com.mehertasnim.Movie.Theater.API.model;
 import jakarta.persistence.*;
 
+import java.util.List;
+
 
 @Entity
 @Table(name = "user")
@@ -17,6 +19,9 @@ public class User {
     @Column(name = "password", nullable = false)
     private String password;
 
+    public User() {
+    }
+
     public User(Long id, String username, String password) {
         this.id = id;
         this.username = username;
@@ -28,22 +33,19 @@ public class User {
     }
 
     public void setId(Long id) {
+
         this.id = id;
     }
 
-    public String getUsername() {
-        return username;
+    public List<Show> getWatchedShows() {
+        return watchedShows;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setWatchedShows(List<Show> watchedShows) {
+        this.watchedShows = watchedShows;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "movie_user_id")
+    private List<Show> watchedShows;
 }
