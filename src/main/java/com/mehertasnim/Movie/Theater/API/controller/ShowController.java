@@ -21,6 +21,7 @@ public class ShowController {
 
     @GetMapping
     public List<Show> getAllShows() {
+
         return showService.getAllShows();
     }
 
