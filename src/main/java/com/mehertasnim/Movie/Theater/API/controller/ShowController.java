@@ -2,6 +2,7 @@ package com.mehertasnim.Movie.Theater.API.controller;
 
 import com.mehertasnim.Movie.Theater.API.model.Show;
 import com.mehertasnim.Movie.Theater.API.service.ShowService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -39,8 +40,16 @@ public class ShowController {
             @PathVariable Long showId,
             @RequestParam("rating") String rating
     ) {
-        Show updatedShow = showService.updateShowRating(showId, rating);
-        return ResponseEntity.ok("Show rating has been updated successfully!");
+        try {
+            // Validate rating field
+            if (rating == null || rating.trim().isEmpty() || rating.contains(" ")) {
+                throw new IllegalArgumentException("Rating field cannot be empty or contain whitespace");
+            }
+            showService.updateShowRating(showId, rating);
+            return ResponseEntity.ok("Show rating has been updated successfully!");
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+        }
     }
 
     @PutMapping("/{showId}/status")
@@ -48,8 +57,19 @@ public class ShowController {
             @PathVariable Long showId,
             @RequestParam("status") String status
     ) {
-        Show updatedShow = showService.updateShowStatus(showId, status);
-        return ResponseEntity.ok("Show status has been updated successfully!");
+        try {
+            // Validate status field
+            if (status == null || status.trim().isEmpty() || status.contains(" ")) {
+                throw new IllegalArgumentException("Status field cannot be empty or contain whitespace");
+            }
+            if (status.length() < 5 || status.length() > 25) {
+                throw new IllegalArgumentException("Status field must be between 5 and 25 characters");
+            }
+            showService.updateShowStatus(showId, status);
+            return ResponseEntity.ok("Show status has been updated successfully!");
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+        }
     }
 
     @DeleteMapping("/{showId}")
