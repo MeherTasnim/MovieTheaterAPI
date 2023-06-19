@@ -51,7 +51,7 @@
 				<artifactId>heroku-maven-plugin</artifactId>
 				<version>3.0.7</version>
 				<configuration>
-					<appName>boiling-cove-80490</appName>
+					<appName>gentle-springs-11015</appName>
 				</configuration>
 			</plugin>
 			<plugin>
