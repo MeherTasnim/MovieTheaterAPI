@@ -1,1 +1,1 @@
-web: java -jar target/MovieTheaterAPI.jar
+web: java -jar MovieTheaterApiApplication.jar
