@@ -16,7 +16,7 @@ The project includes the following features:
 
 * GET all shows
 * GET one show
-* GET shows of a particular genre (genre in req.params)
+* GET shows of a particular genre
 * PUT update rating of a show that has been watched
 * PUT update the status of a show
 * Server side validation for updating rating and status
