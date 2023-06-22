@@ -1,7 +1,7 @@
-# MovieTheaterAPI
+# Panda's Carnival Theater
 
 ## Description
-MovieTheater API is a back end project created with Java and Spring Boot. It aims to show the list of movies(shows) and users. 
+Panda's Carnival Theater is a back end project created with Java and Spring Boot. It aims to show the list of movies(shows) and users. 
 H2 database is used to store the show and user details.
 The project includes the following features:
 
